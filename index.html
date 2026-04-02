@@ -1,0 +1,199 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мягкий цех — диваны напрямую от производителя</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <div class="brand">
+        <span class="brand__mark">МЦ</span>
+        <span class="brand__name">Мягкий цех</span>
+      </div>
+      <nav class="nav">
+        <a href="#hero">Главная</a>
+        <a href="#catalog">Диваны</a>
+        <a href="#about">О компании</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <button class="btn btn--accent btn--small" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})">Заказать диван</button>
+      <button class="burger" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Диваны напрямую от производителя</p>
+          <h1>Современные диваны по доступным ценам</h1>
+          <p class="hero__lead">С 2015 года мы создаём диваны, которые идеально подходят под ваш интерьер и ваши задачи — от готовых решений до индивидуального заказа.</p>
+          <div class="hero__actions">
+            <a class="btn btn--dark" href="#gallery-start">Смотреть диваны</a>
+          </div>
+          <div class="hero__stats">
+            <div>
+              <span class="stat__value">12 лет</span>
+              <span class="stat__label">на рынке мебели</span>
+            </div>
+            <div>
+              <span class="stat__value">Более 30</span>
+              <span class="stat__label">моделей в наличии</span>
+            </div>
+            <div>
+              <span class="stat__value">10 дней</span>
+              <span class="stat__label">Средний срок изготовления и доставки.</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero__media">
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+        <span>Листайте вниз</span>
+      </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+      <div class="container">
+        <h2>Почему выбирают нас</h2>
+        <p class="section__lead">Мы строим сервис вокруг вашего комфорта — от консультации до доставки.</p>
+        <div class="benefits__grid">
+          <article class="benefit-card fade-in-up">
+            <div class="icon">🚚</div>
+            <h3>Доставка по городу</h3>
+            <p>Привезём в назначенный срок и заранее обговореннное время. Бережно занесём и соберём. Работаем Без дополнительных доплат. Строго по договору.</p>
+          </article>
+          <article class="benefit-card fade-in-up delay-1">
+            <div class="icon">🧵</div>
+            <h3>Качественные материалы</h3>
+            <p>Износостойкая ткань и надежная фурнитура для ежедневного использования.</p>
+          </article>
+          <article class="benefit-card fade-in-up delay-2">
+            <div class="icon">🛋️</div>
+            <h3>Большой выбор моделей</h3>
+            <p>Угловые, прямые, модульные — под любой интерьер и площадь.</p>
+          </article>
+          <article class="benefit-card fade-in-up">
+            <div class="icon">👱🏻‍♀️👍</div>
+            <h3>Доступные цены</h3>
+            <p>Опытные и внимательные продавцы-консультанты готовы сопровождать Вас, начиная с момента выбора ткани и на протяжении гарантийного срока.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <div class="container">
+        <div class="catalog__head">
+          <h2>Галерея диванов</h2>
+          <p class="section__lead">Выберите модель и откройте подробную карточку с фото и характеристиками.</p>
+        </div>
+        <div class="catalog__visit-banner fade-in-up">
+          <div class="catalog__visit-content">
+            <h3>Хотите увидеть диваны вживую?</h3>
+            <p>Приглашаем вас посетить наши магазины по адресу: <strong>г. Челябинск, Свердловский тракт, 1ж (ТК СДМ), 2 этаж</strong></p>
+            <p class="catalog__visit-departments">Отделы: <span>3/06 · 3/08 · 3/76</span></p>
+            <p>Наши специалисты продемонстрируют вам варианты тканей и раскладок диванов, сориентируют по ценам и ответят на интересующие вопросы.</p>
+          </div>
+          <div class="catalog__visit-image">
+            <div class="catalog__visit-icon">🛋️</div>
+          </div>
+        </div>
+        <div class="catalog__scroll catalog__scroll--vertical" aria-label="Галерея с вертикальной прокруткой" id="gallery-start">
+          <div class="catalog__grid" id="catalog-grid"></div>
+        </div>
+        <div class="catalog__show-more">
+          <button class="btn btn--show-more" id="show-more-btn">
+            <span>Показать все диваны</span>
+            <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-contacts" id="contacts">
+      <div class="container">
+        <div class="about-contacts__grid">
+          <div class="about-contacts__block fade-in-up">
+            <h2>О компании</h2>
+            <p>"Мягкий цех" занимается продажей удобных и качественных диванов. Мы предлагаем современные модели по доступным ценам. Наши диваны подходят как для гостиной, так и для спальни. Работаем напрямую с производителями, поэтому можем предложить выгодные цены.</p>
+            <ul class="about__list">
+              <li>Индивидуальный подбор ткани и цвета</li>
+              <li>Гарантия на каркас и механизмы 18 месяцев</li>
+            </ul>
+          </div>
+          <div class="about-contacts__block fade-in-up delay-1">
+            <h2>Контакты</h2>
+            <p class="contacts__company">Мягкий цех</p>
+            <div class="contacts__address-block">
+              <p class="contacts__address">г. Челябинск, Свердловский тракт, 1ж (ТК СДМ), 2 этаж</p>
+              <p class="contacts__departments">
+                <span>Отделы:</span>
+                <span class="contacts__dept-list">3/06 · 3/08 · 3/76</span>
+              </p>
+              <p class="contacts__info-row">
+                <span class="contacts__info-label">Контактный номер:</span>
+                <a class="contacts__info-link" href="tel:+79525208517">8 (952) 520-85-17</a>
+                <span class="contacts__info-name">Александр</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="brand footer__brand">
+          <span class="brand__mark">МЦ</span>
+          <span class="brand__name">Мягкий цех</span>
+        </div>
+        <p><a href="tel:+79525208517">8 (952) 520-85-17</a></p>
+      </div>
+      <div class="footer__meta">© 2026. Все права защищены.</div>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="Наверх">↑</button>
+
+  <div class="modal" id="sofa-modal" aria-hidden="true">
+    <div class="modal__overlay" data-close-modal></div>
+    <div class="modal__dialog">
+      <button class="modal__close" data-close-modal aria-label="Закрыть">×</button>
+      <div class="modal__content">
+        <div class="modal__gallery">
+          <button class="gallery__nav gallery__nav--prev" data-gallery-prev aria-label="Предыдущее фото">‹</button>
+          <div class="gallery__image"></div>
+          <button class="gallery__nav gallery__nav--next" data-gallery-next aria-label="Следующее фото">›</button>
+          <div class="gallery__dots"></div>
+        </div>
+        <div class="modal__info">
+          <h3 class="modal__title"></h3>
+          <div class="modal__price"></div>
+          <p class="modal__description"></p>
+          <ul class="modal__features"></ul>
+          <button class="btn btn--accent" onclick="document.getElementById('sofa-modal').classList.remove('is-open'); document.getElementById('sofa-modal').setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})">Заказать диван</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
