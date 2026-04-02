@@ -18,6 +18,8 @@ const galleryState = {
   index: 0,
 };
 
+const imageCache = new Map();
+
 const lockScroll = (lock) => {
   body.style.overflow = lock ? 'hidden' : '';
 };
@@ -72,13 +74,16 @@ const probeImage = (urls) =>
 
 const buildImagesFromFolder = async (card) => {
   const folder = card.dataset.folder;
-  const exts = (card.dataset.exts || '.jpg,.jpeg,.png,.webp')
+  const exts = (card.dataset.exts || '.jpg,.JPG,.jpeg,.JPEG,.png,.PNG,.webp,.WEBP')
     .split(',')
     .map((ext) => ext.trim())
     .filter(Boolean);
   const explicitCount = Number(card.dataset.count || 0);
   const maxScan = Number(card.dataset.max || 10);
   if (!folder || !exts.length) return [];
+  if (imageCache.has(folder)) {
+    return imageCache.get(folder);
+  }
   const results = [];
   const limit = explicitCount > 0 ? explicitCount : maxScan;
   for (let i = 1; i <= limit; i += 1) {
@@ -91,6 +96,7 @@ const buildImagesFromFolder = async (card) => {
       break;
     }
   }
+  imageCache.set(folder, results);
   return results;
 };
 
