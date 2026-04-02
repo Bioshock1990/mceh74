@@ -19,6 +19,7 @@ const galleryState = {
 };
 
 const imageCache = new Map();
+let galleryManifestPromise;
 
 const lockScroll = (lock) => {
   body.style.overflow = lock ? 'hidden' : '';
@@ -72,6 +73,19 @@ const probeImage = (urls) =>
     tryNext(0);
   });
 
+const loadGalleryManifest = async () => {
+  if (!galleryManifestPromise) {
+    galleryManifestPromise = fetch('data/gallery-images.json', { cache: 'no-store' })
+      .then((response) => {
+        if (!response.ok) throw new Error('Gallery manifest fetch failed');
+        return response.json();
+      })
+      .catch(() => ({}));
+  }
+
+  return galleryManifestPromise;
+};
+
 const buildImagesFromFolder = async (card) => {
   const folder = card.dataset.folder;
   const exts = (card.dataset.exts || '.jpg,.JPG,.jpeg,.JPEG,.png,.PNG,.webp,.WEBP')
@@ -84,6 +98,13 @@ const buildImagesFromFolder = async (card) => {
   if (imageCache.has(folder)) {
     return imageCache.get(folder);
   }
+
+  const manifest = await loadGalleryManifest();
+  if (manifest[folder]?.length) {
+    imageCache.set(folder, manifest[folder]);
+    return manifest[folder];
+  }
+
   const results = [];
   const limit = explicitCount > 0 ? explicitCount : maxScan;
   for (let i = 1; i <= limit; i += 1) {
